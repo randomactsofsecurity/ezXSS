@@ -2,10 +2,11 @@
 
   class Database {
 
-    private $databaseHost = '127.0.0.1';
-    private $databaseUser = '';
-    private $databasePassword = '';
-    private $databaseName = '';
+    private $databaseHost = 'mysql'; //this is the docker image name
+    private $databaseUser = 'root';
+    private $databasePassword = 'toor';
+    private $databaseName = 'ezxss';
+    private $databasePort = '3306';
     private $DB;
 
     /**
@@ -14,7 +15,7 @@
   	*/
     public function __construct() {
       try {
-        $this->DB = new PDO('mysql:host='. $this->databaseHost .';dbname='. $this->databaseName, $this->databaseUser, $this->databasePassword);
+        $this->DB = new PDO('mysql:host='. $this->databaseHost .';port='. $this->databasePort .';dbname='. $this->databaseName, $this->databaseUser, $this->databasePassword);
       } catch(PDOException $e) {
         if(debug == true) {
           print $e->getMessage();

@@ -1,6 +1,13 @@
 # ezXSS
 ezXSS is an easy way for penetration testers and bug bounty hunters to test (blind) Cross Site Scripting.
 
+## Docker Version
+This fork is for a docker container. Need to use PHP 5.7 due to mysql8 default authentication changes. And setting docker-compose 'command' setting did not work :(
+
+Run with docker-compose up --build
+
+Note: This is not a secure production ready Docker deployment, so fix the mysql issues and secure the image.
+
 ## Current features
 Some features ezXSS has
 

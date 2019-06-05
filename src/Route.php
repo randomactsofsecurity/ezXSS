@@ -16,11 +16,8 @@
       $this->component = new Component();
       $this->basic = new Basic();
 
-      if(!empty($this->database->fetchSetting('timezone'))) {
-        date_default_timezone_set($this->database->fetchSetting('timezone'));
-      } else {
-        date_default_timezone_set('Europe/Amsterdam');
-      }
+        //date_default_timezone_set($this->database->fetchSetting('timezone'));
+        date_default_timezone_set('America/New_York'); //hotfix for this timezone issue
     }
 
     /**

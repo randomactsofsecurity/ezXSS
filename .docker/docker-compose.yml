@@ -1,0 +1,31 @@
+version: "3.3"
+services:
+  php:
+    build: './php/'
+    networks:
+      - backend
+    volumes:
+      - ./../../ezXSS/:/var/www/html/
+  apache:
+    build: './apache/'
+    depends_on:
+      - php
+      - mysql
+    networks:
+      - frontend
+      - backend
+    ports:
+      - "8080:80"
+    volumes:
+      - ./../../ezXSS/:/var/www/html/
+  mysql:
+    image: mysql:5.7
+    restart: always
+    networks:
+      - backend
+    environment:
+      - MYSQL_DATABASE=ezxss
+      - MYSQL_ROOT_PASSWORD=toor
+networks:
+  frontend:
+  backend:
